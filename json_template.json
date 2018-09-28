@@ -10,7 +10,7 @@
        "acrage": "acres",
        "public": "public land %",
        "terrain": "landcover %",
-       "seasons": "hunting seasons dates",
+       "seasons": "hunting seasons dates"
     },
     "drawOdds": "odds of drawing a tag",
     "harvest": "past success rates for drawn tags",

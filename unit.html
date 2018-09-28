@@ -27,6 +27,30 @@
       3000);
 });
   </script>
+
+
+  <script>
+
+    $(function() {
+
+
+   var people = [];
+   console.log("before")
+
+   $.get('https://huntingunits.github.io/unit-1/json_template.json', function(data) {
+   	console.log("after")
+       $.each(data.properties, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.id + "</td>" +
+           "<td>" + f.name + "</td>" + "<td>" + f.acreage + "</td>" + "<td>" + f.public + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+
+
 </head>
 
 <style type="text/css">
@@ -137,9 +161,24 @@ L.marker(target).addTo(map);
 
 	<div class="container">
 		<div class="row">
-			<h1>Unit Name</h1>
-			<h2>Description</h2>
-			<p>DSFASDFDSAFASDFDSAFASDFAS</p>
+
+<div class="wrapper">
+<div class="profile">
+   <table id= "userdata" border="2">
+  <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>City</th>
+        </thead>
+      <tbody>
+
+       </tbody>
+   </table>
+
+</div>
+</div>
+
 		</div>
 	</div>
 
