@@ -1,0 +1,27 @@
+{
+    "unit" : "Unit Number or WMA Name",
+    "state": "state",
+    "species": [
+       "all"
+    ],
+    "properties": {
+       "id": "attribute table id column",
+       "name": "column with unit/WMA names"
+       "acrage": "acres",
+       "public": "public land %",
+       "terrain": "landcover %",
+       "seasons": "hunting seasons dates",
+    },
+    "drawOdds": "odds of drawing a tag",
+    "harvest": "past success rates for drawn tags",
+    "points": "avg number of preference points required to draw"
+	"license": "link to state agency's draw tag application page",
+	"attribution": "Federal/State Agency",
+    },
+    "country": "US",
+    "url": "https Address",
+    "filenameInZip": "shp file name",
+    "filetype": "shp",
+    "year": "year",
+    "source": "URL of the where the data was found"
+}
