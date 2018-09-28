@@ -31,12 +31,8 @@
 
     $(function() {
 
-
-   var people = [];
-   console.log("before")
-
    $.get('https://huntingunits.github.io/unit-1/WY/unit-110.json', function(data) {
-   	console.log(data.unit)
+
   	$("#unit").html(data.unit)
   	$("#description").html(data.description)
    	$("#state").html(data.state)
@@ -86,6 +82,7 @@ max-height: 100%;
 
 
 
+
 	.commentdate {
 		color: white;
 		font-size: 1.1em;
@@ -117,6 +114,8 @@ max-height: 100%;
 		color:gray;
 	}
 
+
+
 </style>
 
 <body>
@@ -137,8 +136,8 @@ max-height: 100%;
 </nav>
 
 	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
+		<div class="row text-center">
+			<div class="col-md-6 col-sm-6 col-xs-12 map-container">
 				    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
 <div id="osm-map"></div>
@@ -167,8 +166,8 @@ map.setView(target, 11);
 L.marker(target).addTo(map);
 </script>
 			</div>
-			<div class="col-md-6">
-				<div class="fadein">
+			<div class="col-md-6 col-sm-6 col-xs12 text-center images-container">
+				<div class="fadein text-center">
 					<img src="muledeer.jpg">
 					<img src="elk.jpg">
 					<img src="whitetail.jpg">
