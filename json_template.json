@@ -15,9 +15,8 @@
     "drawOdds": "odds of drawing a tag",
     "harvest": "past success rates for drawn tags",
     "points": "avg number of preference points required to draw"
-	"license": "link to state agency's draw tag application page",
-	"attribution": "Federal/State Agency",
-    },
+    "license": "link to state agency's draw tag application page",
+    "attribution": "Federal/State Agency",
     "country": "US",
     "url": "https Address",
     "filenameInZip": "shp file name",
