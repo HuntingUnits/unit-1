@@ -7,8 +7,6 @@
 <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 <link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
 
-
-
 <!-- jQuery -->
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -38,12 +36,15 @@
    console.log("before")
 
    $.get('https://huntingunits.github.io/unit-1/json_template.json', function(data) {
-   	console.log("after")
-       $.each(data.properties, function(i, f) {
-          var tblRow = "<tr>" + "<td>" + f.id + "</td>" +
-           "<td>" + f.name + "</td>" + "<td>" + f.acreage + "</td>" + "<td>" + f.public + "</td>" + "</tr>"
-           $(tblRow).appendTo("#userdata tbody");
-     });
+   	console.log(data.unit)
+  	$("#unit").html(data.unit)
+   	$("#state").html(data.state)
+   	$("#species").html(data.species)
+   	$("#acres").html(data.properties.acrage)
+   	$("#drawOdds").html(data.drawOdds)
+   	$("#harvest").html(data.harvest)
+   	$("#seasons").html(data.seaons)
+      
 
    });
 
@@ -75,7 +76,7 @@ max-height: 100%;
 
 
 	.commentdate {
-		color: rgba(158, 157, 158, 0.7);
+		color: white;
 		font-size: 1.1em;
 		font-style: italic;
 		padding-left:5px;
@@ -91,14 +92,18 @@ max-height: 100%;
 	}
 	.commentheader {
 		padding: 0px 0px 5px 5px;
-		background: rgba(0, 0, 0, 0.7); 
+		background: #FFA500; 
 		height:40px;
-		margin-top:5px;
+		padding-top:5px;
 	}
 	.commentbody {
 		border: 1px solid black;
 		padding:20px;
 		margin:0px 0px 5px 0px;
+	}
+
+	.stats {
+		color:gray;
 	}
 
 </style>
@@ -107,14 +112,16 @@ max-height: 100%;
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" href="#">HuntingUnits.github.io</a>
     </div>
+    <!--
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">Page 1</a></li>
       <li><a href="#">Page 2</a></li>
       <li><a href="#">Page 3</a></li>
     </ul>
+-->
   </div>
 </nav>
 
@@ -140,10 +147,10 @@ L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // Target's GPS coordinates.
-var target = L.latLng('47.50737', '19.04611');
+var target = L.latLng('41.186', '-106.364');
 
 // Set map's center to target with zoom 14.
-map.setView(target, 13);
+map.setView(target, 11);
 
 // Place a marker on the same location.
 L.marker(target).addTo(map);
@@ -151,33 +158,41 @@ L.marker(target).addTo(map);
 			</div>
 			<div class="col-md-6">
 				<div class="fadein">
-					<img src="bird.jpg">
-					<img src="deer.jpg">
-					<img src="cat.jpg">
+					<img src="muledeer.jpg">
+					<img src="elk.jpg">
+					<img src="whitetail.jpg">
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="container">
+		<hr>
+		<div class="row text-center">
+			<div class="col-md-4">
+				<h2 class="stats">Acres: <span id="acres"></span></h2>
+			</div>
+			<div class="col-md-4">
+				<h2 class="stats">Draw Odds: <span id="drawOdds"></span></h2>
+			</div>
+			<div class="col-md-4">
+				<h2 class="stats">Success Rate: <span id="harvest"></span></h2>
+			</div>
+		</div>
+		<hr>
 		<div class="row">
 
-<div class="wrapper">
-<div class="profile">
-   <table id= "userdata" border="2">
-  <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email Address</th>
-            <th>City</th>
-        </thead>
-      <tbody>
+	<h1 id="unit"></h1>
+	<h3 id="state"></h3>
+	<p id="description">fsdfasfdsafasdjofds jfsd fsdghf asdhjko fsadhi </p>
 
-       </tbody>
-   </table>
+	<h1>Seasons</h1>
+	<span id="seasons"></span>
 
-</div>
-</div>
+	<hr>
+
+
+  	
 
 		</div>
 	</div>
@@ -209,7 +224,7 @@ L.marker(target).addTo(map);
               "<div class='commentgravatar'>" + 
                 '<img src="' + cavatarlink + '" alt="" width="30" height="30">' + 
               "</div>" + 
-              "<a class='commentuser' href=\""+ cuserlink + "\">" + 
+              "<a class='commentuser' href=\"" + cuserlink + "\">" + 
                 cuser + 
               "</a>" + 
               "<a class='commentdate' href=\"" + clink + "\">" + 
