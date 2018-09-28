@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+	
+	<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+<link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
+
+
+
+<!-- jQuery -->
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+  <script type="text/javascript">
+  	
+ $(function(){
+    $('.fadein img:gt(0)').hide();
+    setInterval(function(){
+      $('.fadein :first-child').fadeOut()
+         .next('img').fadeIn()
+         .end().appendTo('.fadein');}, 
+      3000);
+});
+  </script>
+</head>
+
+<style type="text/css">
+	
+
+img	{
+
+width: auto;
+height: auto;
+max-width: 100%;
+max-height: 100%;
+
+}
+
+#osm-map img {
+    max-height: none;
+}
+
+.fadein { position:relative; width:500px; height:332px; }
+.fadein img { position:absolute; left:0; top:0; }
+
+
+
+	.commentdate {
+		color: rgba(158, 157, 158, 0.7);
+		font-size: 1.1em;
+		font-style: italic;
+		padding-left:5px;
+	}
+	.commentuser {
+		padding-left:20px;
+		padding-bottom:20px;
+	}
+	.commentgravatar img{
+		vertical-align: middle;
+		height:30px;
+		float:left;
+	}
+	.commentheader {
+		padding: 0px 0px 5px 5px;
+		background: rgba(0, 0, 0, 0.7); 
+		height:40px;
+		margin-top:5px;
+	}
+	.commentbody {
+		border: 1px solid black;
+		padding:20px;
+		margin:0px 0px 5px 0px;
+	}
+
+</style>
+
+<body>
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				    <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+<link href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" rel="stylesheet"/>
+<div id="osm-map"></div>
+<script type="text/javascript">
+	// Where you want to render the map.
+var element = document.getElementById('osm-map');
+
+// Height has to be set. You can do this in CSS too.
+element.style = 'height:335px;';
+
+// Create Leaflet map on map element.
+var map = L.map(element);
+
+// Add OSM tile leayer to the Leaflet map.
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+// Target's GPS coordinates.
+var target = L.latLng('47.50737', '19.04611');
+
+// Set map's center to target with zoom 14.
+map.setView(target, 13);
+
+// Place a marker on the same location.
+L.marker(target).addTo(map);
+</script>
+			</div>
+			<div class="col-md-6">
+				<div class="fadein">
+					<img src="bird.jpg">
+					<img src="deer.jpg">
+					<img src="cat.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<h1>Unit Name</h1>
+			<h2>Description</h2>
+			<p>DSFASDFDSAFASDFDSAFASDFAS</p>
+		</div>
+	</div>
+
+<!--comments -->
+	<div class="container">
+		<div class="row">
+			<h1>Bragging Board</h1>
+			<div id="comments"></div>
+		</div>
+	</div>
+</body>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function loadComments(data) {
+    for (var i=0; i<data.length; i++) {
+      var cuser = data[i].user.login;
+      var cuserlink = data[i].user.html_url;
+      var clink = data[i].html_url;
+      var cbody = data[i].body_html;
+      var cavatarlink = data[i].user.avatar_url;      
+      var cdate = new Date(data[i].created_at);
+      $("#comments").append(
+         "<div class='comment'>" + 
+            "<div class='commentheader'>" + 
+              "<div class='commentgravatar'>" + 
+                '<img src="' + cavatarlink + '" alt="" width="30" height="30">' + 
+              "</div>" + 
+              "<a class='commentuser' href=\""+ cuserlink + "\">" + 
+                cuser + 
+              "</a>" + 
+              "<a class='commentdate' href=\"" + clink + "\">" + 
+                cdate.toLocaleDateString("en") +  
+              "</a>" +
+            "</div>" + 
+            "<div class='commentbody'>" + 
+              cbody + 
+            "</div>" + 
+          "</div>"
+      );
+    }
+  }
+  $.ajax("https://api.github.com/repos/HuntingUnits/unit-1/issues/1/comments", {
+    headers: {Accept: "application/vnd.github.v3.html+json"},
+    dataType: "json",
+    success: function(msg){
+      loadComments(msg);
+   }
+  });
+</script>
+
+
+</html>
