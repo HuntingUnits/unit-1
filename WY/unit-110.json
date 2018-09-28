@@ -18,14 +18,13 @@
        "public": "65%"
     },
     "drawOdds": [
-       "Elk: Oct. 15 - Oct. 31",
-       "Elk (Cow Only): Oct. 1 - Nov.14",
-       "Mule Deer (Buck Only): Oct. 1 - Oct. 14",
-       "Whitetail Deer: Oct. 1 - Dec. 31",
-       "Whitetail Deer (Antlerless Only): Sep. 1 - Dec. 31"
+       "Elk (Bull): 100%",
+       "Elk (Cow Only): 22.22%",
+       "Mule Deer: 20.24%",
+       "Whitetail Deer: 41.1%"
     ],
     "harvest": "77.22%",
-    "points": "4"
+    "points": "3",
 	"license": "https://wgfd.wyo.gov/apply-or-buy",
 	"attribution": "Wyoming Game & Fish Department"
     },
