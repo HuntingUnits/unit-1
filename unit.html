@@ -35,15 +35,26 @@
    var people = [];
    console.log("before")
 
-   $.get('https://huntingunits.github.io/unit-1/json_template.json', function(data) {
+   $.get('https://huntingunits.github.io/unit-1/WY/unit-110.json', function(data) {
    	console.log(data.unit)
   	$("#unit").html(data.unit)
+  	$("#description").html(data.description)
    	$("#state").html(data.state)
-   	$("#species").html(data.species)
+   	$("#species0").html(data.species[0])
+   	$("#species1").html(data.species[1])
+   	$("#species2").html(data.species[2])
    	$("#acres").html(data.properties.acrage)
-   	$("#drawOdds").html(data.drawOdds)
+   	$("#drawOdds0").html(data.drawOdds[0])
+   	$("#drawOdds1").html(data.drawOdds[1])
+   	$("#drawOdds2").html(data.drawOdds[2])
+   	$("#drawOdds3").html(data.drawOdds[3])
    	$("#harvest").html(data.harvest)
-   	$("#seasons").html(data.seaons)
+   	$("#seasons0").html(data.seasons[0])
+   	$("#seasons1").html(data.seasons[1])
+   	$("#seasons2").html(data.seasons[2])
+   	$("#seasons3").html(data.seasons[3])
+   	$("#seasons4").html(data.seasons[4])
+   	$("#public").html(data.properties.public)
       
 
    });
@@ -173,7 +184,7 @@ L.marker(target).addTo(map);
 				<h2 class="stats">Acres: <span id="acres"></span></h2>
 			</div>
 			<div class="col-md-4">
-				<h2 class="stats">Draw Odds: <span id="drawOdds"></span></h2>
+				<h2 class="stats">Public: <span id="public"></span></h2>
 			</div>
 			<div class="col-md-4">
 				<h2 class="stats">Success Rate: <span id="harvest"></span></h2>
@@ -183,15 +194,39 @@ L.marker(target).addTo(map);
 		<div class="row">
 
 	<h1 id="unit"></h1>
-	<h3 id="state"></h3>
-	<p id="description">fsdfasfdsafasdjofds jfsd fsdghf asdhjko fsadhi </p>
-
-	<h1>Seasons</h1>
-	<span id="seasons"></span>
+	<h3>State: <span id="state"></span></h3>
+	<p id="description"></p>
 
 	<hr>
 
+	<h2>Seasons</h2>
+	<ul>
 
+	<li id="seasons0"></li>
+	<li id="seasons1"></li>
+	<li id="seasons2"></li>
+	<li id="seasons3"></li>
+	<li id="seasons4"></li>
+	</ul>
+
+	<hr>
+
+	<h2>Species</h2>
+	<ul>
+	<li id="species0"></li>
+	<li id="species1"></li>
+	<li id="species2"></li>
+</ul>
+	<hr>
+
+		<h2>Draw Odds</h2>
+		<ul>
+	<li id="drawOdds0"></li>
+	<li id="drawOdds1"></li>
+	<li id="drawOdds2"></li>
+</ul>
+
+	<hr>
   	
 
 		</div>
@@ -200,8 +235,9 @@ L.marker(target).addTo(map);
 <!--comments -->
 	<div class="container">
 		<div class="row">
-			<h1>Bragging Board</h1>
+			<h2>Bragging Board</h2>
 			<div id="comments"></div>
+			<p><a href="https://github.com/HuntingUnits/unit-1/issues/1">Cick here to leave a comment.</a></p>
 		</div>
 	</div>
 </body>
