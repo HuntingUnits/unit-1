@@ -1,0 +1,35 @@
+{
+    "unit" : "Elk Unit 110 - Deer Unit 78",
+    "state": "WY",
+    "species": [
+       "Elk",
+       "Mule Deer",
+       "Whitetail Deer"
+    ],
+    "seasons": [
+       "Elk: Oct. 15 - Oct. 31",
+       "Elk (Cow Only): Oct. 1 - Nov.14",
+       "Mule Deer (Buck Only): Oct. 1 - Oct. 14",
+       "Whitetail Deer: Oct. 1 - Dec. 31",
+       "Whitetail Deer (Antlerless Only): Sep. 1 - Dec. 31"
+    ],
+    "properties": {
+       "acrage": "17,000",
+       "public": "65%"
+    },
+    "drawOdds": [
+       "Elk: Oct. 15 - Oct. 31",
+       "Elk (Cow Only): Oct. 1 - Nov.14",
+       "Mule Deer (Buck Only): Oct. 1 - Oct. 14",
+       "Whitetail Deer: Oct. 1 - Dec. 31",
+       "Whitetail Deer (Antlerless Only): Sep. 1 - Dec. 31"
+    ],
+    "harvest": "77.22%",
+    "points": "4"
+	"license": "https://wgfd.wyo.gov/apply-or-buy",
+	"attribution": "Wyoming Game & Fish Department"
+    },
+    "country": "US",
+    "year": "2018",
+    "source": "https://wyoming-wgfd.opendata.arcgis.com/ & https://wgfd.wyo.gov/hunting"
+}
